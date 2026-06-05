@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Checkbox/Guidelines" />
 
@@ -6,7 +6,6 @@ import { Meta } from '@storybook/blocks';
 
 독립적으로 켜고 끌 수 있는 선택 요소입니다.
 
----
 
 ## ✅ Do
 
@@ -22,7 +21,6 @@ import { Meta } from '@storybook/blocks';
 - `label` 없이 사용하지 마세요.
 - 필수 체크박스를 checked 상태로 초기화해두지 마세요. 사용자의 명시적 동의가 필요합니다.
 
----
 
 ## Checkbox vs Toggle 선택 기준
 
@@ -33,17 +31,13 @@ import { Meta } from '@storybook/blocks';
 | 즉시 적용되는 설정 | Toggle |
 | 페이지 이동 없이 바로 반영 | Toggle |
 
----
 
 ## indeterminate 사용 예시
-
-부모 체크박스(전체 선택)의 하위 항목 중 일부만 선택된 상태를 나타낼 때 사용합니다.
 
 ```tsx
 <Checkbox label="전체 선택" indeterminate={someChecked && !allChecked} />
 ```
 
----
 
 ## 접근성
 

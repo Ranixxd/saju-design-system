@@ -1,51 +1,39 @@
-import { Meta } from '@storybook/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Card/Guidelines" />
 
 # Card
 
-관련 콘텐츠를 하나의 그룹으로 묶는 컨테이너입니다.
+관련된 정보를 하나의 컨테이너로 묶어 표현하는 레이아웃 컴포넌트입니다.
 
----
-
-## 구성 요소
-
-| 컴포넌트 | 역할 |
-|---------|------|
-| `Card` | 최상위 컨테이너 |
-| `CardHeader` | 제목, 상태, 액션 버튼 |
-| `CardBody` | 핵심 콘텐츠 |
-| `CardFooter` | 보조 액션, 메타 정보 |
-
----
 
 ## ✅ Do
 
-- 논리적으로 연관된 콘텐츠만 한 카드에 담으세요.
-- 카드 목록에서는 **동일한 padding, shadow, border** 설정을 유지하세요.
-- 클릭 가능한 카드에는 `hoverable` prop을 사용해 시각적 피드백을 주세요.
-- `CardHeader` / `CardBody` / `CardFooter`로 구조를 명확히 나누면 유지보수가 쉬워집니다.
+- 연관된 정보를 하나의 단위로 묶을 때 사용하세요.
+- `hoverable`은 클릭 가능한 카드에만 사용하세요. (사용자에게 인터랙션 기대를 심어줍니다)
+- 카드 내부 레이아웃은 일관된 패딩 기준을 유지하세요.
+- 클릭 가능한 카드 전체 영역에 `role="button"` 또는 `<a>`를 사용하세요.
 
 ## ❌ Don't
 
-- 하나의 카드 안에 너무 많은 정보를 넣지 마세요. 스캔이 어려워집니다.
-- 카드 안에 카드를 중첩하지 마세요.
-- `hoverable`은 실제로 클릭 가능할 때만 사용하세요. 클릭 안 되는데 hover 효과만 있으면 혼란을 줍니다.
-- 카드 목록에서 각 카드의 크기가 제각각이 되지 않도록 하세요.
+- 카드 안에 카드를 중첩하지 마세요. (레이아웃 복잡도 증가)
+- 클릭 이벤트 없는 카드에 `hoverable`을 사용하지 마세요.
+- `shadow`와 `bordered`를 같이 강하게 사용하면 너무 무거워 보입니다.
+- 카드 내부에 너무 많은 정보를 담지 마세요. 스캔 가능한 수준을 유지하세요.
 
----
 
-## Shadow & Border 조합 가이드
+## shadow + bordered 조합 가이드
 
-| 배경 | 권장 설정 |
-|------|---------|
-| 흰 배경 | `bordered=true`, `shadow="sm"` |
-| 회색 배경 | `bordered=false`, `shadow="md"` |
-| 모달/오버레이 안 | `bordered=false`, `shadow="none"` |
+| 상황 | 권장 설정 |
+|------|----------|
+| 기본 콘텐츠 카드 | `shadow="sm"` + `bordered` |
+| 강조 카드 | `shadow="md"` + `bordered={false}` |
+| 배경과 구분 충분할 때 | `shadow="none"` + `bordered` |
+| 플로팅 카드 | `shadow="lg"` + `bordered={false}` |
 
----
 
 ## 접근성
 
-- 클릭 가능한 카드라면 `<button>` 또는 `<a>`로 감싸거나 `role="button"` + `tabIndex={0}`을 추가하세요.
-- 카드 제목을 heading 태그(`h2`, `h3` 등)로 마크업하면 페이지 구조 파악에 도움이 됩니다.
+- 클릭 가능한 카드는 `role="article"` 또는 `<article>`로 감싸고 포커스 가능하게 만드세요.
+- 카드 내 주요 정보(제목)를 가장 먼저 배치해 스크린리더 탐색을 돕습니다.
+- `hoverable` 카드는 키보드 포커스 시에도 동일한 시각적 피드백을 제공하세요.
