@@ -1,0 +1,35 @@
+/* Headings */
+.h1 { font-size: var(--text-5xl); font-weight: var(--font-bold); line-height: 1.1; letter-spacing: -0.025em; margin: 0; }
+.h2 { font-size: var(--text-4xl); font-weight: var(--font-bold); line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
+.h3 { font-size: var(--text-3xl); font-weight: var(--font-semibold); line-height: 1.25; margin: 0; }
+.h4 { font-size: var(--text-2xl); font-weight: var(--font-semibold); line-height: 1.3; margin: 0; }
+.h5 { font-size: var(--text-xl); font-weight: var(--font-semibold); line-height: 1.35; margin: 0; }
+.h6 { font-size: var(--text-lg); font-weight: var(--font-semibold); line-height: 1.4; margin: 0; }
+
+/* Text variants */
+.text { margin: 0; }
+.body      { font-size: var(--text-md); line-height: 1.6; }
+.body_sm   { font-size: var(--text-sm); line-height: 1.5; }
+.caption   { font-size: var(--text-xs); line-height: 1.4; }
+.overline  { font-size: var(--text-xs); line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase; font-weight: var(--font-semibold); }
+
+/* Colors */
+.color_primary   { color: var(--text-primary); }
+.color_secondary { color: var(--text-secondary); }
+.color_tertiary  { color: var(--text-tertiary); }
+.color_inverse   { color: var(--text-inverse); }
+.color_danger    { color: var(--color-danger-600); }
+.color_success   { color: var(--color-success-600); }
+
+/* Weights */
+.weight_regular  { font-weight: var(--font-regular); }
+.weight_medium   { font-weight: var(--font-medium); }
+.weight_semibold { font-weight: var(--font-semibold); }
+.weight_bold     { font-weight: var(--font-bold); }
+
+/* Truncate */
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

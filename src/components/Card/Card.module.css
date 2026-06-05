@@ -1,0 +1,49 @@
+.card {
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+/* Padding */
+.padding_none { padding: 0; }
+.padding_sm   { padding: var(--space-3); }
+.padding_md   { padding: var(--space-5); }
+.padding_lg   { padding: var(--space-8); }
+
+/* Shadow */
+.shadow_none { box-shadow: none; }
+.shadow_sm   { box-shadow: var(--shadow-sm); }
+.shadow_md   { box-shadow: var(--shadow-md); }
+.shadow_lg   { box-shadow: var(--shadow-lg); }
+
+/* Border */
+.bordered {
+  border: 1px solid var(--border-default);
+}
+
+/* Hoverable */
+.hoverable {
+  cursor: pointer;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.hoverable:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Sub-components (when used without padding on Card) */
+.header {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border-default);
+  font-weight: var(--font-semibold);
+}
+
+.body {
+  padding: var(--space-5);
+}
+
+.footer {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--border-default);
+  background-color: var(--bg-secondary);
+}
