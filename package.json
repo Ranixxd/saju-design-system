@@ -1,20 +1,49 @@
 {
-  "name": "saju-design-system",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@ranixxd/saju-design-system",
+  "version": "0.1.0",
+  "description": "Vite + React + TypeScript 기반 디자인 시스템",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./styles": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "build:types": "tsc -p tsconfig.build.json",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm run build"
   },
-  "dependencies": {
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+  "keywords": [
+    "design-system",
+    "react",
+    "typescript",
+    "components",
+    "ui"
+  ],
+  "author": "ranixxd",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
   },
+  "dependencies": {},
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",
     "@eslint/js": "^10.0.1",
@@ -35,6 +64,8 @@
     "eslint-plugin-storybook": "^10.4.2",
     "globals": "^17.6.0",
     "playwright": "^1.60.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "storybook": "^10.4.2",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",

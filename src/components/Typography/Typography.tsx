@@ -16,7 +16,7 @@ export const Heading: React.FC<HeadingProps> = ({
   children,
   ...props
 }) => {
-  const Tag = as ?? level;
+  const Tag = (as ?? level) as React.ElementType;
   return (
     <Tag
       className={[styles[level], className ?? ''].filter(Boolean).join(' ')}
@@ -32,7 +32,7 @@ export type TextVariant = 'body' | 'body-sm' | 'caption' | 'overline';
 export type TextColor = 'primary' | 'secondary' | 'tertiary' | 'inverse' | 'danger' | 'success';
 
 export interface TextProps extends React.HTMLAttributes<HTMLElement> {
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   variant?: TextVariant;
   color?: TextColor;
   weight?: 'regular' | 'medium' | 'semibold' | 'bold';
@@ -49,8 +49,9 @@ export const Text: React.FC<TextProps> = ({
   children,
   ...props
 }) => {
+  const Component = Tag as React.ElementType;
   return (
-    <Tag
+    <Component
       className={[
         styles.text,
         styles[variant.replace('-', '_')],
@@ -64,6 +65,6 @@ export const Text: React.FC<TextProps> = ({
       {...props}
     >
       {children}
-    </Tag>
+    </Component>
   );
 };
