@@ -54,6 +54,7 @@ export const DisabledChecked: Story = {
   args: { label: '비활성 선택됨', disabled: true, defaultChecked: true },
 };
 
+
 export const Group: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>

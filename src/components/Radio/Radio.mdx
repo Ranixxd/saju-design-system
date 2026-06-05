@@ -1,39 +1,41 @@
-import { Meta } from '@storybook/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Radio/Guidelines" />
 
-# Radio / RadioGroup
+# Radio
 
-여러 옵션 중 **하나만 선택**할 수 있는 폼 요소입니다.
+상호 배타적인 옵션 중 하나를 선택할 때 사용합니다.
 
----
 
 ## ✅ Do
 
-- 선택지가 **2~4개**일 때 사용하세요. 한눈에 모든 옵션을 비교할 수 있습니다.
-- 반드시 `RadioGroup`으로 묶어 `name`을 공유하세요. 단독 Radio는 그룹 맥락 없이 의미가 없습니다.
-- 옵션 중 가장 일반적인 값을 기본 선택 상태로 설정하세요.
-- 옵션 텍스트는 서로 명확히 구별되어야 합니다.
+- 선택지가 **2~5개**이고 상호 배타적일 때 사용하세요.
+- 반드시 `name` 속성으로 같은 그룹임을 명시하세요.
+- 기본 선택값(default)을 제공하는 것이 좋습니다.
+- 선택지가 길면 세로로, 짧으면 가로로 배치하세요.
+- `fieldset`과 `legend`로 그룹을 감싸 관계를 명확히 하세요.
 
 ## ❌ Don't
 
-- 선택지가 5개 이상이면 Select를 사용하세요. 라디오 버튼이 많으면 스크롤이 길어집니다.
-- 선택지 없이(미선택 상태) 폼을 제출할 수 있게 두지 마세요. 기본값을 설정하거나 필수임을 안내하세요.
-- 라디오 버튼을 하나만 단독으로 사용하지 마세요. Checkbox를 사용하세요.
+- 선택지가 6개 이상이면 Select를 사용하세요.
+- 여러 항목을 동시에 선택해야 한다면 Checkbox를 사용하세요.
+- Radio 버튼을 선택 즉시 폼을 제출하는 용도로 사용하지 마세요.
+- `label` 없이 사용하지 마세요.
 
----
 
-## 항목 수별 권장 컴포넌트
+## Radio vs Checkbox vs Select
 
-| 항목 수 | 권장 컴포넌트 |
-|--------|-------------|
-| 2~4개 | RadioGroup |
-| 5개 이상 | Select |
-| On/Off 1개 | Checkbox 또는 Toggle |
+| 상황 | 권장 컴포넌트 |
+|------|-------------|
+| 1개만 선택 (2~5개 옵션) | Radio |
+| 여러 개 선택 가능 | Checkbox |
+| 1개만 선택 (6개 이상 옵션) | Select |
+| 즉시 반영되는 On/Off | Toggle |
 
----
 
 ## 접근성
 
-- `RadioGroup`은 `<fieldset>` + `<legend>` 구조로 그룹 레이블이 스크린리더에 전달됩니다.
-- 키보드 방향키(↑↓)로 라디오 간 이동이 가능합니다.
+- `label`을 제공하면 `htmlFor`와 `id`가 자동으로 연결됩니다.
+- `isError` 상태에서 `aria-invalid="true"`가 자동 설정됩니다.
+- 그룹 전체에 `role="radiogroup"`과 `aria-labelledby`를 제공하세요.
+- 키보드 화살표 키로 그룹 내 탐색이 가능해야 합니다.
