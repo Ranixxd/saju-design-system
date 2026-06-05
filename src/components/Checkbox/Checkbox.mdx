@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/blocks';
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta title="Components/Checkbox/Guidelines" />
+
+# Checkbox
+
+독립적으로 켜고 끌 수 있는 선택 요소입니다.
+
+---
+
+## ✅ Do
+
+- **독립적인 On/Off 선택**에 사용하세요. (동의 여부, 기능 활성화)
+- 여러 항목을 **동시에 복수 선택**할 수 있을 때 사용하세요.
+- 전체 선택/해제 기능에는 `indeterminate` 상태를 활용하세요.
+- `label`은 선택했을 때의 상태를 설명하세요. (예: "이메일 수신에 동의합니다")
+
+## ❌ Don't
+
+- 상호 배타적인 선택(하나만 고르기)에는 Checkbox 대신 RadioGroup을 사용하세요.
+- On/Off 토글 목적이라면 Toggle을 사용하세요.
+- `label` 없이 사용하지 마세요.
+- 필수 체크박스를 checked 상태로 초기화해두지 마세요. 사용자의 명시적 동의가 필요합니다.
+
+---
+
+## Checkbox vs Toggle 선택 기준
+
+| 상황 | 권장 컴포넌트 |
+|------|-------------|
+| 동의/약관 동의 | Checkbox |
+| 복수 항목 선택 | Checkbox |
+| 즉시 적용되는 설정 | Toggle |
+| 페이지 이동 없이 바로 반영 | Toggle |
+
+---
+
+## indeterminate 사용 예시
+
+부모 체크박스(전체 선택)의 하위 항목 중 일부만 선택된 상태를 나타낼 때 사용합니다.
+
+```tsx
+<Checkbox label="전체 선택" indeterminate={someChecked && !allChecked} />
+```
+
+---
+
+## 접근성
+
+- 키보드로 Space 키를 눌러 토글할 수 있습니다.
+- `indeterminate` 상태는 `aria-checked="mixed"`로 스크린리더에 전달됩니다.

@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/blocks';
+import * as SpinnerStories from './Spinner.stories';
+
+<Meta title="Components/Spinner/Guidelines" />
+
+# Spinner
+
+콘텐츠 로딩 중임을 알리는 인디케이터입니다.
+
+---
+
+## ✅ Do
+
+- **비동기 작업이 진행 중**일 때만 사용하세요. (API 호출, 파일 업로드)
+- 로딩 시간이 **1초 이상** 걸릴 것으로 예상될 때 표시하세요. 순간적인 전환에는 불필요합니다.
+- 로딩 중인 영역 **가운데**에 배치하세요.
+- 어두운 배경에서는 `variant="white"`를 사용하세요.
+- Button 안 로딩에는 별도 Spinner 대신 Button의 `loading` prop을 사용하세요.
+
+## ❌ Don't
+
+- 페이지 전체를 Spinner로 가리지 마세요. 스켈레톤 UI가 더 좋은 사용자 경험을 제공합니다.
+- 로딩이 완료됐는데도 Spinner를 계속 표시하지 마세요.
+- 에러 상태에서도 Spinner를 계속 보여주지 마세요. 에러 메시지로 교체하세요.
+
+---
+
+## 사이즈 선택 기준
+
+| Size | 사용 상황 |
+|------|----------|
+| `sm` (16px) | 버튼 내부, 인라인 |
+| `md` (24px) | 기본값, 카드 내부 |
+| `lg` (32px) | 섹션 로딩 |
+| `xl` (48px) | 페이지 전체 로딩 |
+
+---
+
+## Variant 선택 기준
+
+| Variant | 사용 배경 |
+|---------|---------|
+| `primary` | 흰 배경, 밝은 배경 (기본값) |
+| `neutral` | 회색 배경 |
+| `white` | 어두운 배경, 색상 버튼 위 |
+
+---
+
+## 접근성
+
+- `role="status"` + `aria-label`이 자동 설정됩니다.
+- 기본 `aria-label`은 "Loading..."이며, `label` prop으로 변경할 수 있습니다.

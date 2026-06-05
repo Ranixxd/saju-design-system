@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/blocks';
+import * as DividerStories from './Divider.stories';
+
+<Meta title="Components/Divider/Guidelines" />
+
+# Divider
+
+콘텐츠 영역을 시각적으로 분리하는 구분선입니다.
+
+---
+
+## ✅ Do
+
+- 주제가 다른 섹션 사이에 사용해 콘텐츠를 명확히 구분하세요.
+- `label`을 활용해 "또는", "기타" 같은 맥락 텍스트를 구분선 가운데 배치하세요.
+- 수직 Divider(`orientation="vertical"`)는 같은 줄의 항목을 구분할 때 사용하세요. (네비게이션, 버튼 그룹)
+
+## ❌ Don't
+
+- 단순히 여백을 추가하려고 Divider를 사용하지 마세요. 여백은 `margin`이나 `gap`으로 처리하세요.
+- 너무 많은 Divider를 사용하면 오히려 콘텐츠가 단편화되어 보입니다.
+- 카드나 테이블처럼 이미 테두리가 있는 컴포넌트 안에서 Divider를 남용하지 마세요.
+
+---
+
+## Orientation 선택 기준
+
+| Orientation | 사용 상황 |
+|------------|---------|
+| `horizontal` (기본값) | 섹션 간 수평 구분 |
+| `vertical` | 인라인 항목 구분 (네비게이션, 메타 정보) |
+
+---
+
+## 접근성
+
+- `role="separator"`가 자동 설정됩니다.
+- 순수 시각적 요소이므로 스크린리더 사용자에게 의미 있는 정보를 전달하지 않습니다.

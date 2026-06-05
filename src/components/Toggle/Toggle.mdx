@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/blocks';
+import * as ToggleStories from './Toggle.stories';
+
+<Meta title="Components/Toggle/Guidelines" />
+
+# Toggle
+
+즉시 적용되는 On/Off 설정에 사용합니다.
+
+---
+
+## ✅ Do
+
+- **페이지 이동이나 제출 없이 즉시 반영되는 설정**에 사용하세요. (알림 On/Off, 기능 활성화)
+- `label`로 현재 어떤 설정을 제어하는지 명확히 알려주세요.
+- 설정 목록 페이지에서 일관되게 사용하세요.
+- 상태 변경 시 피드백(Toast 등)을 함께 제공하면 좋습니다.
+
+## ❌ Don't
+
+- 폼 제출이 필요한 동의/선택에는 Toggle 대신 Checkbox를 사용하세요.
+- `label` 없이 아이콘만 단독으로 사용하지 마세요.
+- 되돌리기 어려운 위험한 액션(계정 삭제 등)에는 사용하지 마세요.
+
+---
+
+## Toggle vs Checkbox 선택 기준
+
+| 상황 | 권장 컴포넌트 |
+|------|-------------|
+| 즉시 반영되는 설정 | Toggle |
+| 저장 버튼 후 반영 | Checkbox |
+| 약관 동의 | Checkbox |
+| 복수 항목 선택 | Checkbox |
+
+---
+
+## 사이즈 선택 기준
+
+| Size | 사용 상황 |
+|------|----------|
+| `sm` | 인라인, 밀도 높은 목록 |
+| `md` | 기본값, 설정 페이지 |
+| `lg` | 강조가 필요한 단독 사용 |
+
+---
+
+## 접근성
+
+- `role="switch"` + `aria-checked`로 스크린리더에 상태가 전달됩니다.
+- 키보드 Space 키로 토글할 수 있습니다.
