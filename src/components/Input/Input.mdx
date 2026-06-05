@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Components/Input/Guidelines" />
+
+# Input
+
+텍스트 기반 데이터를 입력받는 기본 폼 요소입니다.
+
+---
+
+## ✅ Do
+
+- **항상 `label`을 제공하세요.** placeholder만으로는 접근성 기준을 충족하지 못합니다.
+- 입력 형식이 있으면 `helperText`로 미리 안내하세요. (예: 숫자만 입력, YYYY-MM-DD 형식)
+- 유효성 검사는 **submit 시점** 또는 **onBlur** 시점에 실행하세요. 타이핑 중 에러 표시는 UX를 해칩니다.
+- `errorMessage`는 구체적으로 작성하세요. "잘못된 입력"보다 "이메일 형식이 올바르지 않습니다"가 훨씬 낫습니다.
+
+## ❌ Don't
+
+- placeholder를 label 대신 사용하지 마세요. 입력 후 무엇을 입력했는지 알 수 없게 됩니다.
+- `isError`와 `isSuccess`를 동시에 사용하지 마세요.
+- 필수 항목 표시(*)를 label 없이 단독으로 쓰지 마세요.
+- 에러 메시지 없이 `isError`만 true로 두지 마세요. 사용자가 무엇이 잘못됐는지 알 수 없습니다.
+
+---
+
+## 상태별 사용 기준
+
+| 상태 | 사용 시점 |
+|------|----------|
+| 기본 | 아직 인터랙션 없음 |
+| Focus | 사용자가 입력 중 |
+| `isError` | 유효성 검사 실패 |
+| `isSuccess` | 중복 확인 등 서버 검증 통과 시 |
+| `disabled` | 조건에 따라 수정 불가한 필드 |
+
+---
+
+## Addon 사용 기준
+
+- `leftAddon` — 검색 아이콘, 통화 기호($, ₩), 국가 코드(+82)
+- `rightAddon` — 단위(원, kg), 비밀번호 표시 토글, 입력 초기화 버튼
+
+---
+
+## 접근성
+
+- `label`과 `input`은 `htmlFor` / `id`로 자동 연결됩니다.
+- `errorMessage`가 있으면 `aria-invalid="true"`와 `aria-describedby`가 자동 설정됩니다.
+- 에러 메시지 영역은 `role="alert"`로 스크린리더에 즉시 전달됩니다.

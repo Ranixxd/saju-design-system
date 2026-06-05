@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Components/Toast/Guidelines" />
+
+# Toast
+
+사용자 액션에 대한 피드백을 비방해적으로 전달합니다.
+
+---
+
+## Variants
+
+| Variant | 사용 상황 |
+|---------|---------|
+| `info` | 일반 안내, 업데이트 알림 |
+| `success` | 저장 완료, 전송 성공 |
+| `warning` | 주의 필요, 만료 임박 |
+| `danger` | 오류 발생, 요청 실패 |
+
+---
+
+## ✅ Do
+
+- **사용자 액션의 결과**를 알려줄 때 사용하세요. (저장됨, 복사됨, 삭제됨)
+- 메시지는 **짧고 명확하게** 작성하세요. 1~2문장이 적당합니다.
+- `title`과 `message`를 함께 사용해 제목과 설명을 구분하세요.
+- 기본 `duration`(4초)을 유지하세요. 너무 짧으면 못 읽고, 너무 길면 화면을 가립니다.
+- `useToast` 훅으로 어디서든 Toast를 띄울 수 있습니다.
+
+## ❌ Don't
+
+- **즉각적인 사용자 반응이 필요한 경우**에는 Toast가 아닌 Modal을 사용하세요.
+- 에러가 발생했을 때 Toast만으로 처리하지 마세요. 폼 에러는 해당 필드 옆에 표시하세요.
+- 동시에 **3개 이상** 띄우지 마세요. 메시지가 쌓이면 다 읽기 어렵습니다.
+- `duration={0}`(무한)은 꼭 필요한 경우에만 사용하고, 닫기 버튼을 항상 제공하세요.
+
+---
+
+## 사용 방법
+
+```tsx
+// 앱 최상단에 Provider 설정
+<ToastProvider>
+  <App />
+</ToastProvider>
+
+// 컴포넌트에서 사용
+const { addToast } = useToast();
+
+addToast({
+  variant: 'success',
+  title: '저장 완료',
+  message: '변경사항이 저장되었습니다.',
+});
+```
+
+---
+
+## 접근성
+
+- `role="alert"` + `aria-live="polite"`로 스크린리더에 자동 전달됩니다.
+- 키보드로 닫기 버튼에 포커스 후 Enter로 닫을 수 있습니다.
