@@ -1,6 +1,6 @@
 {
   "name": "@ranixxd/saju-design-system",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vite + React + TypeScript 기반 디자인 시스템",
   "type": "module",
   "main": "./dist/index.cjs",
